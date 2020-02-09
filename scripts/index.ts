@@ -2,11 +2,15 @@ import MessageService from "./firebase/MessageService"
 import LoginService from "./LoginService"
 import utils from './Utils'
 import TransitionService from './TransitionService'
+import { NestedCombinedChat } from "./firebase/interfaces";
 
-class App{
+export default class App{
     public loginService = new LoginService(this)
     public messageService!: MessageService
     public transitionService = new TransitionService()
+    public secureStorage = new cordova.plugins.SecureStorage(()=>{},()=>{},"my_app");
+    public userChats!:NestedCombinedChat[]
+
 
 
     constructor() {
@@ -14,8 +18,9 @@ class App{
     }
 
     onDeviceReady():void {
-      
+      this.loginService.initLogin()
     }
+    
 
 }
 

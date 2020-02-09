@@ -4,7 +4,7 @@ export default class TransitionService{
     private current:string = 'login' //Whatever starting div is
 
 
-    public pageTransition(off:string, on:string) {
+    private pageTransition(off:string, on:string) {
         let onDiv = document.getElementById(on)!.style
         let offDiv = document.getElementById(off)!.style
         if(this.onLeft.includes(on)){ //on left side
@@ -25,5 +25,9 @@ export default class TransitionService{
         if(this.onLeft.length) {
             this.pageTransition(this.current,this.onLeft[this.onLeft.length - 1])
         }
+    }
+
+    public goTo(on:string) {
+        return this.pageTransition(this.current,on)
     }
 }

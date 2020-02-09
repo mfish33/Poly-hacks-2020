@@ -2,13 +2,19 @@ import {userDataCache} from './interfaces'
 
 export default class UserCache{
 
-    private cache:userDataCache[] = []
+    private cache:userDataCache[] = [{
+        uid:'System',
+        DisplayName:'System',
+        Avatar: 'null',
+        TimeStamp: -Infinity
+    }]
     private cacheTimeout = 600  //seconds
     private missingUser = {
         DisplayName:'Unknown User',
         Avatar: 'null',
-        TimeStamp: Date.now() / 1000
+        TimeStamp: -Infinity
     }
+
 
     constructor(private db:firebase.firestore.Firestore) {}
 
