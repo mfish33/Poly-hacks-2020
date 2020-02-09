@@ -8,7 +8,7 @@ export default class App{
     public loginService = new LoginService(this)
     public messageService!: MessageService
     public transitionService = new TransitionService()
-    public secureStorage = new cordova.plugins.SecureStorage(()=>{},()=>{},"my_app");
+    public secureStorage!:any
     public userChats!:NestedCombinedChat[]
     public currentNested!:NestedCombinedChat
 
@@ -18,10 +18,10 @@ export default class App{
     }
 
     onDeviceReady():void {
-      this.loginService.initLogin()
+      //this.secureStorage = new cordova.plugins.SecureStorage(()=>{this.loginService.initLogin()},()=>{},"my_app");
     }
     
 
 }
-
-let app = new App()
+//@ts-ignore
+window.app = new App()

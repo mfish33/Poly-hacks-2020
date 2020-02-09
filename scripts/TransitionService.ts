@@ -1,14 +1,13 @@
 export default class TransitionService{
 
     private onLeft:string[] = []
-    private current:string = 'splash-page' //Whatever starting div is
+    private current:string = 'welcome-page' //Whatever starting div is
 
 
     private pageTransition(off:string, on:string) {
         let onDiv = document.getElementById(on)!.style
         let offDiv = document.getElementById(off)!.style
         if(this.onLeft.includes(on)){ //on left side
-            console.log('Here')
             offDiv.transform = 'translate(100vw,0vh)'
             this.onLeft = this.onLeft.filter(i => i!==on)
         } else {

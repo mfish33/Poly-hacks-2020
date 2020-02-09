@@ -84,7 +84,6 @@ export default class LoginService{
     public async getUserData():Promise<void> {
         try{
             this.app.userChats = await this.app.messageService.getUserChats()
-            console.log(this.app.userChats)
 
         } catch(e) {
             return this.getUserData()
