@@ -39,8 +39,8 @@ export default class ChatHelper{
         let out:string[] = []
         let {publicChat, parentChat, privateChats} = this.app.currentNested
         out.push(`<div class="row chat m-2 ">
-        <div class="col col-centered class-select-item" onclick="app.chatHelper.getChatFromId(${publicChat.id})">
-                <button class="class-select-button">
+        <div class="col col-centered class-select-item">
+                <button class="class-select-button" onclick="app.chatHelper.getChatFromId(${publicChat.id})">
                         <h2 class="class-select-large-text">${publicChat.Class}</h2>
                         <p class="class-select-medium-text">${publicChat.FullName}</p>
                       </button>    
@@ -48,8 +48,8 @@ export default class ChatHelper{
       
 </div>`)
         out.push(`<div class="row chat m-2 ">
-<div class="col col-centered class-select-item" onclick="app.chatHelper.getChatFromId(${parentChat.id})">
-        <button class="class-select-button">
+<div class="col col-centered class-select-item">
+        <button class="class-select-button" onclick="app.chatHelper.getChatFromId(${parentChat.id})">
                 <h2 class="class-select-large-text">Section Chat</h2>
                 <p class="class-select-medium-text">${publicChat.FullName}</p>
               </button>    
@@ -58,8 +58,8 @@ export default class ChatHelper{
 </div>`)
     for(let chat of privateChats){
         out.push(`<div class="row chat m-2 ">
-<div class="col col-centered class-select-item" onclick="app.chatHelper.getChatFromId(${chat.id})">
-        <button class="class-select-button" >
+<div class="col col-centered class-select-item">
+        <button class="class-select-button" onclick="app.chatHelper.getChatFromId(${chat.id})">
                 <h2 class="class-select-large-text">${chat.Name}</h2>
                 <p class="class-select-medium-text">${publicChat.FullName}</p>
               </button>    
