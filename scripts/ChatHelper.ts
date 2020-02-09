@@ -11,6 +11,7 @@ export default class ChatHelper{
         let chats =  this.app.userChats.filter(chat => chat.publicChat.id == publicChatId)[0]
         if(chats){
             this.app.currentNested = chats
+            this.pushChatsToFrontEnd()
             this.app.transitionService.goTo("unreadthread-page")
         }else{
             throw new Error("No Public Chat Of That Id")
@@ -33,6 +34,41 @@ export default class ChatHelper{
             throw new Error("No Chat Of That Id")
         }
     }
+
+    private pushChatsToFrontEnd(){
+        let out:string[] = []
+        let {publicChat, parentChat, privateChats} = this.app.currentNested
+        out.push(`<div class="row chat m-2 ">
+        <div class="col col-centered class-select-item" onclick="app.chatHelper.getChatFromId(${publicChat.id})">
+                <button class="class-select-button">
+                        <h2 class="class-select-large-text">${publicChat.Class}</h2>
+                        <p class="class-select-medium-text">${publicChat.FullName}</p>
+                      </button>    
+            </div>
+      
+</div>`)
+        out.push(`<div class="row chat m-2 ">
+<div class="col col-centered class-select-item" onclick="app.chatHelper.getChatFromId(${parentChat.id})">
+        <button class="class-select-button">
+                <h2 class="class-select-large-text">Section Chat</h2>
+                <p class="class-select-medium-text">${publicChat.FullName}</p>
+              </button>    
+    </div>
+
+</div>`)
+    for(let chat of privateChats){
+        out.push(`<div class="row chat m-2 ">
+<div class="col col-centered class-select-item" onclick="app.chatHelper.getChatFromId(${chat.id})">
+        <button class="class-select-button" >
+                <h2 class="class-select-large-text">${chat.Name}</h2>
+                <p class="class-select-medium-text">${publicChat.FullName}</p>
+              </button>    
+    </div>
+
+</div>`)
+    }
+    document.getElementById('unread-thread-container')!.innerHTML = out.join('')
+}
 
     private pushToFrontEnd(newMessages:message[]) {
         let out:string[] = []

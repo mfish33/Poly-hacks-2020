@@ -61,7 +61,8 @@ export default class LoginService{
     }
 
     public transitionStart() {
-        this.app.transitionService.goTo('welcome-page')
+        this.login("mfishe13@calpoly.edu", 'test123')
+        //this.app.transitionService.goTo('welcome-page')
     }
     
     public async getUserData():Promise<void> {

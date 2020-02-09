@@ -6,7 +6,9 @@ export interface PublicChat{
     Class:string,
     TimeStamp:Date,
     users:string[],
-    Parent:string
+    Parent:string,
+    FullName:string,
+    Instructor:string
 }
 
 export interface PrivateChat{
