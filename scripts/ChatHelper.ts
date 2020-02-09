@@ -8,11 +8,13 @@ export default class ChatHelper{
 
     
     public getNestedFromId(publicChatId:string):void{
+        console.log(this.app.userChats)
         let chats =  this.app.userChats.filter(chat => chat.publicChat.id == publicChatId)[0]
         if(chats){
             this.app.currentNested = chats
             this.pushChatsToFrontEnd()
-            this.app.transitionService.goTo("unread-thread-page")
+            console.log('Pushed to front end')
+            this.app.transitionService.goTo("unread-threads-page")
         }else{
             throw new Error("No Public Chat Of That Id")
         }
@@ -29,6 +31,7 @@ export default class ChatHelper{
             chat = privateChats.filter(chat => chat.id == chatId)[0]
         }
         if(chat){
+            console.log(chat)
             this.app.messageService.subscribeToChat(chat,this.pushToFrontEnd)
         }else{
             throw new Error("No Chat Of That Id")
@@ -67,7 +70,8 @@ export default class ChatHelper{
 
 </div>`)
     }
-    document.getElementById('unread-thread-container')!.innerHTML = out.join('')
+    console.log(out,document.getElementById('unread-threads-container'))
+    document.getElementById('unread-threads-container')!.innerHTML = out.join('')
 }
 
     private pushToFrontEnd(newMessages:message[]) {

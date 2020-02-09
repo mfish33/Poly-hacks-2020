@@ -8,14 +8,14 @@ export default class TransitionService{
         let onDiv = document.getElementById(on)!.style
         let offDiv = document.getElementById(off)!.style
         if(this.onLeft.includes(on)){ //on left side
-            offDiv.transform = 'translate(120vw,-78vh)'
+            offDiv.transform = 'translate(120vw,0vh)'
             this.onLeft = this.onLeft.filter(i => i!==on)
         } else {
-            offDiv.transform = 'translate(-120vw,-78vh)'
+            offDiv.transform = 'translate(-120vw,0vh)'
             this.onLeft.push(off)     
         }
         offDiv.transition = '.75s'
-        onDiv.transform = 'translate(0vw,-78vh)'
+        onDiv.transform = 'translate(0vw,0vh)'
         onDiv.transition = '.75s'    
         this.current = on
     }

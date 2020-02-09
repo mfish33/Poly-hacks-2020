@@ -3,6 +3,7 @@ import LoginService from "./LoginService"
 import utils from './Utils'
 import TransitionService from './TransitionService'
 import { NestedCombinedChat } from "./firebase/interfaces";
+import ChatHelper from './ChatHelper'
 
 export default class App{
     public loginService = new LoginService(this)
@@ -10,7 +11,8 @@ export default class App{
     public transitionService = new TransitionService()
     public secureStorage!:any
     public userChats!:NestedCombinedChat[]
-    public currentNested!:NestedCombinedChat
+    public currentNested!:NestedCombinedChat;
+    public chatHelper = new ChatHelper(this)
 
 
     constructor() {
