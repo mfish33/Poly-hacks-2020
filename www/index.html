@@ -12,7 +12,7 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div id='welcome-page'>
+        <div id='welcome-page' class="off-screen">
             <div class="welcome-header__container">
                 <b class="welcome-header">Welcome to </b>
             </div>
@@ -33,7 +33,7 @@
 
             <div class='login-button__container'>
                 <div class='login-button__row'>
-                    <button id='sign-in' class='login-button'onclick="app.loginService.transitionStart()">Sign In</button>
+                    <button id='sign-in' class='login-button'>Sign In</button>
                 </div>
                 <div class='login-button__row'>
                     <button id='sign-up' class='login-button'>Sign Up</button>
@@ -80,29 +80,7 @@
                         </span>
                         <img src="./img/img-avatar.png" class ='navbar-image'alt="Avatar">
                 </nav>
-            <div class="container">
-
-                <div class="row chat m-2">
-                        <div class="col col-centered class-select-item">
-                                <button class="class-select-button">
-                                        <h2 class="class-select-large-text">Chem124</h2>
-                                        <p class="class-select-medium-text">General Chemistry for Physical Science and Engineers</p>
-                                        <p class="class-select-small-text">Section 15 - Bradley Moran</p>
-                                      </button>    
-                            </div>
-                      
-                </div>
-
-
-                <div class="row chat m-2 ">
-                        <div class="col col-centered class-select-item">
-                                <button class="class-select-button">
-                                        <h2 class="class-select-large-text">Chem124</h2>
-                                        <p class="class-select-medium-text">General Chemistry for Physical Science and Engineers</p>
-                                        <p class="class-select-small-text">Section 15 - Bradley Moran</p>
-                                      </button>    
-                            </div>
-                      
+            <div class="thread-container">
                 </div>
 
         </div>
@@ -182,7 +160,7 @@
             </div>
         </div>
 
-        <div id="splash-page" class="off-screen">
+        <div id="splash-page">
             <div>
                 <img src="./img/Splash.png" alt="splash">
             </div>
