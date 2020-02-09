@@ -12,7 +12,7 @@ export default class ChatHelper{
         if(chats){
             this.app.currentNested = chats
             this.pushChatsToFrontEnd()
-            this.app.transitionService.goTo("unreadthread-page")
+            this.app.transitionService.goTo("unread-thread-page")
         }else{
             throw new Error("No Public Chat Of That Id")
         }
@@ -40,7 +40,7 @@ export default class ChatHelper{
         let {publicChat, parentChat, privateChats} = this.app.currentNested
         out.push(`<div class="row chat m-2 ">
         <div class="col col-centered class-select-item">
-                <button class="class-select-button" onclick="app.chatHelper.getChatFromId("${publicChat.id}")">
+                <button class="class-select-button" onclick="app.chatHelper.getChatFromId('${publicChat.id}')">
                         <h2 class="class-select-large-text">${publicChat.Class}</h2>
                         <p class="class-select-medium-text">${publicChat.FullName}</p>
                       </button>    
@@ -49,7 +49,7 @@ export default class ChatHelper{
 </div>`)
         out.push(`<div class="row chat m-2 ">
 <div class="col col-centered class-select-item">
-        <button class="class-select-button" onclick="app.chatHelper.getChatFromId("${parentChat.id}")">
+        <button class="class-select-button" onclick="app.chatHelper.getChatFromId('${parentChat.id}')">
                 <h2 class="class-select-large-text">Section Chat</h2>
                 <p class="class-select-medium-text">${publicChat.FullName}</p>
               </button>    
@@ -59,7 +59,7 @@ export default class ChatHelper{
     for(let chat of privateChats){
         out.push(`<div class="row chat m-2 ">
 <div class="col col-centered class-select-item">
-        <button class="class-select-button" onclick="app.chatHelper.getChatFromId("${chat.id}")">
+        <button class="class-select-button" onclick="app.chatHelper.getChatFromId('${chat.id}')">
                 <h2 class="class-select-large-text">${chat.Name}</h2>
                 <p class="class-select-medium-text">${publicChat.FullName}</p>
               </button>    
