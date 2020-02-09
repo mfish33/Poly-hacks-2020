@@ -61,7 +61,7 @@ export default class LoginService{
     }
 
     public transitionStart() {
-        //IMPLEMENT
+        this.app.transitionService.goTo('welcome-page')
     }
     
     public async getUserData():Promise<void> {
