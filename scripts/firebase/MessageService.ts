@@ -130,6 +130,7 @@ export default class MessageService{ private subscribedChat!: PrivateChat | Publ
         for(let message of newMessages) {
             let user = await this.userCache.getUser(message.Author)
             message.Author = user.DisplayName
+            message.Avatar = user.Avatar
         }
         return cb(newMessages)
     }

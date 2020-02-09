@@ -1,7 +1,6 @@
-import MessageService from "./firebase/MessageService"
-import Utils from './Utils'
 import App from './index'
-import { NestedCombinedChat, PublicChat, ParentChat, PrivateChat } from "./firebase/interfaces";
+import { message } from './firebase/interfaces';
+
    
 export default class ChatHelper{
     
@@ -17,21 +16,51 @@ export default class ChatHelper{
             throw new Error("No Public Chat Of That Id")
         }
     }
-    public getChatFromId(chatId:string):PublicChat | ParentChat | PrivateChat{
+
+    public getChatFromId(chatId:string):void{
         let {publicChat, parentChat, privateChats} = this.app.currentNested
-        let chats
+        let chat
         if(publicChat.id == chatId){
-            let chats = publicChat
+            chat = publicChat
         }else if(parentChat.id == chatId){
-            let chats = parentChat
+            chat = parentChat
         }else{
-            let chats = privateChats.filter(chat => chat.id == chatId)[0]
+            chat = privateChats.filter(chat => chat.id == chatId)[0]
         }
-        if(chats){
-            return chats
+        if(chat){
+            this.app.messageService.subscribeToChat(chat,this.pushToFrontEnd)
         }else{
             throw new Error("No Chat Of That Id")
         }
+    }
+
+    private pushToFrontEnd(newMessages:message[]) {
+        let out:string[] = []
+        for(let message of newMessages) {
+            if (message.Author == this.app.messageService.user.displayName) {
+                out.push(
+                `<div class="row chat m-2">
+                <div class="col-2">
+                      <img src="${message.Avatar && message.Avatar == 'null' ? message.Avatar :'./img/img-avatar.png'}" class ='chat-avatar'alt="Avatar">
+                  </div>
+                <div class="col message-out">
+                  <p>${message.Author}: ${message.Data}</p>
+                </div>
+                
+          </div>`)
+            } else {
+                out.push(
+                `<div class="row chat m-2">
+                <div class="col message-in">
+                  <p>${message.Author}: ${message.Data}</p>
+                </div>
+                <div class="col-2">
+                      <img src="${message.Avatar && message.Avatar == 'null' ? message.Avatar :'./img/img-avatar.png'}" class ='chat-avatar'alt="Avatar">
+                  </div>
+          </div>`)
+            }
+        }
+        document.getElementById('chat-container')!.innerHTML = out.join('')
     }
 
         
