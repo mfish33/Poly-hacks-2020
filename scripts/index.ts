@@ -1,4 +1,9 @@
+import MessageService from "./firebase/MessageService"
+import LoginService from "./LoginService"
+
 class App{
+    public loginService = new LoginService(this)
+    public messageService!: MessageService
 
 
     constructor() {
