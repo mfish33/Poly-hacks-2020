@@ -14,7 +14,8 @@ export default class App{
 
 
     constructor() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);   
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);  
+        TransitionService.offScreen('chat-page','threads-page','add-chat-page','unread-threads-page') 
     }
 
     onDeviceReady():void {

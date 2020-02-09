@@ -12,7 +12,7 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div id='welcome-page' class="off-screen">
+        <div id='welcome-page'>
             <div class="welcome-header__container">
                 <b class="welcome-header">Welcome to </b>
             </div>
@@ -33,16 +33,13 @@
 
             <div class='login-button__container'>
                 <div class='login-button__row'>
-                    <button id='sign-in' class='login-button'>Sign In</button>
+                    <button id='sign-in' class='login-button' onclick="app.loginService.transitionStart()">Sign In</button>
                 </div>
                 <div class='login-button__row'>
                     <button id='sign-up' class='login-button'>Sign Up</button>
                 </div>
             </div>
 
-            <div>
-                <img src="./img/Splash.png" alt="splash">
-            </div>
         
         
             <div id='login'>
@@ -80,7 +77,7 @@
                         </span>
                         <img src="./img/img-avatar.png" class ='navbar-image'alt="Avatar">
                 </nav>
-            <div class="thread-container">
+            <div id="thread-container">
                 </div>
 
         </div>

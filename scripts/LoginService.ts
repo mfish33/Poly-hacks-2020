@@ -33,7 +33,8 @@ export default class LoginService{
                         </div>`
                 )
             }
-
+            document.getElementById('thread-container')!.innerHTML = out.join('')
+            this.app.transitionService.goTo('threads-page')
 
 
         }catch(e){

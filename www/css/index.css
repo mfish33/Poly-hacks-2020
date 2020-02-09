@@ -14,9 +14,6 @@
     margin:0;
   }
   
-  .off-screen{
-    transform: translate(100vw,0vh);
-  }
   .img{
     width: 100px
   }
