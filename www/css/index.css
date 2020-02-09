@@ -157,3 +157,107 @@
     color: #FFFFFF;
   }
   
+  .message-out{
+    background: #377E73;
+border: 3px solid #377E73;
+border-radius: 20px;
+  }
+
+  .message-in{
+    background: #F2FAF9;
+border: 3px solid #377E73;
+border-radius: 20px;
+  }
+
+
+  .chat-avatar{
+  border-radius: 50%;
+  width: 100%;
+  }
+
+  .navbar{
+    background: #377E73;
+    height: 100px;
+    padding:0;
+    margin-bottom: 40px
+  }
+
+  .navbar-text{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: #F2FAF9;
+  }
+
+  .navbar-image{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  .navbar-button{
+    background:transparent;
+    border: transparent
+  }
+  
+  .class-select-button{
+    background: #55BCAC;
+    border: 4px solid #377E73;
+    box-sizing: border-box;
+    border-radius: 25px;
+  }
+  
+  .class-select-small-text{
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    
+    color: #F2FAF9;
+    
+    opacity: 0.78;
+  }
+
+  .class-select-medium-text{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    
+    color: #F2FAF9;
+    opacity: 0.78;
+  }
+  
+  .class-select-large-text{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+    
+    color: #F2FAF9;
+  }
+
+  .col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.class-select-item{
+  margin-bottom: 20px
+}
+.add-class-select{
+  background: #FFFFFF;
+border: 1px solid #377E73;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.add-class-select-item{
+  margin-bottom: 40px
+}
