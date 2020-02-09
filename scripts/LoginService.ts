@@ -25,7 +25,7 @@ export default class LoginService{
                 out.push(
                     `<div class="row chat m-2">
                     <div class="col col-centered class-select-item">
-                            <button class="class-select-button" onclick="app.chatHelper.getNestedFromId(${combinedChatObject.publicChat.id})">
+                            <button class="class-select-button" onclick="app.chatHelper.getNestedFromId('${combinedChatObject.publicChat.id}')">
                                     <h2 class="class-select-large-text">${combinedChatObject.publicChat.Class}</h2>
                                     <p class="class-select-medium-text">${combinedChatObject.publicChat.FullName}</p>
                                     <p class="class-select-small-text">${combinedChatObject.publicChat.Instructor}</p>
