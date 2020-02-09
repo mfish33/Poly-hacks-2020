@@ -10,7 +10,7 @@ export default class App{
     public transitionService = new TransitionService()
     public secureStorage = new cordova.plugins.SecureStorage(()=>{},()=>{},"my_app");
     public userChats!:NestedCombinedChat[]
-
+    public currentNested!:NestedCombinedChat
 
 
     constructor() {

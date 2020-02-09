@@ -1,6 +1,7 @@
 import MessageService from "./firebase/MessageService"
 import Utils from './Utils'
 import App from './index'
+import { NestedCombinedChat } from "./firebase/interfaces";
    
 export default class LoginService{
     private emailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -76,5 +77,6 @@ export default class LoginService{
     public goToHomeState() {
         this.app.transitionService.goTo('Threads-Page')
     }
+
 
 }

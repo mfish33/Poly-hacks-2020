@@ -20,7 +20,7 @@ export interface PrivateChat{
 }
 
 export interface ParentChat{
-    type:'PublicChat',
+    type:'ParentChat',
     id:string
     Messages:message[],
     Name:string,
