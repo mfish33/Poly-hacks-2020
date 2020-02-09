@@ -1,9 +1,33 @@
-export interface chat{
+export interface PublicChat{
+    type:'PublicChat',
+    id:string
+    Messages:message[],
+    Subject:string,
+    Class:string,
+    TimeStamp:Date,
+    users:string[],
+    Parent:string
+}
+
+export interface PrivateChat{
+    type:'PrivateChat',
+    id:string,
+    Messages:message[],
+    Name:string,
+    TimeStamp:Date,
+    Users:string[],
+    AssociatedClass:string
+}
+
+export interface ParentChat{
+    type:'PublicChat',
     id:string
     Messages:message[],
     Name:string,
-    TimeStamp:Date
+    TimeStamp:Date,
+    users:string[]
 }
+
 export interface message{
     Type:string,
     Data:string,
@@ -15,4 +39,10 @@ export interface userDataCache{
     DisplayName:string,
     Avatar:string,
     TimeStamp:number
+}
+
+export interface NestedCombinedChat{
+    publicChat:PublicChat,
+    parentChat:ParentChat,
+    privateChats:PrivateChat[]
 }

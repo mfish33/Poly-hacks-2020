@@ -1,4 +1,5 @@
-class Utils{
+export default class Utils{
+
     static getInput(...args:string[]) {
         try{
             return args.map(prop => (<HTMLInputElement>document.getElementById(prop)).value)
@@ -6,4 +7,7 @@ class Utils{
             throw new Error('Invalid id names')
         }
     }
+
+    
+
 }
