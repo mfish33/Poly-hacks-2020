@@ -6,7 +6,17 @@ import 'firebase/auth'
 import 'firebase/firestore'
 import 'firebase/analytics'
 
-
+// Your web app's MessageService configuration
+const firebaseConfig = {
+apiKey: "AIzaSyC4Feo5EdegevyKE8oWrAijyeKNtf5XUb0",
+authDomain: "my-first-test-project-ad1aa.firebaseapp.com",
+databaseURL: "https://my-first-test-project-ad1aa.firebaseio.com",
+projectId: "my-first-test-project-ad1aa",
+storageBucket: "my-first-test-project-ad1aa.appspot.com",
+messagingSenderId: "578464683165",
+appId: "1:578464683165:web:8eec1281bb985aa4eb7074",
+measurementId: "G-XPXNPCLXK4"
+};
 
 // Initialize MessageService
 firebase.initializeApp(firebaseConfig);
@@ -85,7 +95,9 @@ export default class MessageService{ private subscribedChat!: PrivateChat | Publ
                 parentChat:usersParentChats.filter(p => p.id == c.Parent)[0],
                 privateChats: usersPrivateChats.filter(p => p.AssociatedClass == c.id)
             } as NestedCombinedChat
+            
         })
+        console.log(NestedChats)
         return NestedChats
     }
 
@@ -115,6 +127,7 @@ export default class MessageService{ private subscribedChat!: PrivateChat | Publ
     }
 
     public async formatNewMessages(chat:PublicChat | PrivateChat,cb:Function):Promise<void> {
+        console.log(chat)
         let newMessages = chat.Messages.slice(this.currentMessages.length)
         this.currentMessages = chat.Messages
         for(let message of newMessages) {
