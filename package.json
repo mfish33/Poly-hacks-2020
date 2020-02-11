@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack && cordova run ios"
+    "start": "npx webpack && cordova run ios",
+    "simulate": "npx webpack && npx simulate ios"
   },
   "keywords": [
     "ecosystem:cordova"

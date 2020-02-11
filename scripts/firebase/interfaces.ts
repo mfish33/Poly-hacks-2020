@@ -35,7 +35,8 @@ export interface message{
     Data:string,
     Author:string,
     TimeStamp:Date,
-    Avatar?:string
+    Avatar?:string,
+    uid?:string
 }
 export interface userDataCache{
     uid:string,

@@ -30,6 +30,7 @@ export default class LoginService{
                                     <p class="class-select-medium-text">${combinedChatObject.publicChat.FullName}</p>
                                     <p class="class-select-small-text">${combinedChatObject.publicChat.Instructor}</p>
                                   </button>    
+                        </div>
                         </div>`
                 )
             }

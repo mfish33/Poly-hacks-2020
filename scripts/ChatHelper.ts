@@ -1,7 +1,6 @@
 import App from './index'
 import { message } from './firebase/interfaces';
 
-   
 export default class ChatHelper{
     
     constructor(private app: App){}
@@ -32,7 +31,8 @@ export default class ChatHelper{
         }
         if(chat){
             console.log(chat)
-            this.app.messageService.subscribeToChat(chat,this.pushToFrontEnd)
+            this.app.messageService.subscribeToChat(chat,this.pushToFrontEnd.bind(this))
+            this.app.transitionService.goTo('chat-page')
         }else{
             throw new Error("No Chat Of That Id")
         }
@@ -77,11 +77,11 @@ export default class ChatHelper{
     private pushToFrontEnd(newMessages:message[]) {
         let out:string[] = []
         for(let message of newMessages) {
-            if (message.Author == this.app.messageService.user.displayName) {
+            if (message.uid == this.app.messageService.user.uid) {
                 out.push(
                 `<div class="row chat m-2">
                 <div class="col-2">
-                      <img src="${message.Avatar && message.Avatar == 'null' ? message.Avatar :'./img/img-avatar.png'}" class ='chat-avatar'alt="Avatar">
+                      <img src="${message.Avatar && message.Avatar != 'null' ? message.Avatar :'./img/img-avatar.png'}" class ='chat-avatar'alt="Avatar">
                   </div>
                 <div class="col message-out">
                   <p>${message.Author}: ${message.Data}</p>
@@ -95,12 +95,22 @@ export default class ChatHelper{
                   <p>${message.Author}: ${message.Data}</p>
                 </div>
                 <div class="col-2">
-                      <img src="${message.Avatar && message.Avatar == 'null' ? message.Avatar :'./img/img-avatar.png'}" class ='chat-avatar'alt="Avatar">
+                      <img src="${message.Avatar && message.Avatar != 'null' ? message.Avatar :'./img/img-avatar.png'}" class ='chat-avatar'alt="Avatar">
                   </div>
           </div>`)
             }
         }
-        document.getElementById('chat-container')!.innerHTML = out.join('')
+        document.getElementById('chat-container')!.innerHTML += out.join('')
+    }
+
+    sendMessage() {
+        let inputBox = <HTMLInputElement>document.getElementById('chat-input')
+        let message = inputBox.value
+        if(message) {
+            this.app.messageService.postMessage(message)
+            inputBox.value = ''
+        }
+        
     }
 
         

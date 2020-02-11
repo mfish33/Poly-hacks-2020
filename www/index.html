@@ -40,14 +40,8 @@
                 </div>
             </div>
 
-        
-        
-            <div id='login'>
-                <div class="welcome-header__container">
-                    <b class="welcome-header">Welcome to </b>
-                </div>
-            </div>
         </div>
+
 
         <div id="chat-page" class="off-screen">
             <div class="container">
@@ -55,18 +49,31 @@
                     <button class="navbar-button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z" fill="white"/></svg></button>
                         
                         <span class="navbar-text">
-                            Threads
+                            Chat
                         </span>
                         <img src="./img/img-avatar.png" class ='navbar-image'alt="Avatar">
                 </nav>
                 <div id="chat-container">
 
                 </div>
-
+                
+                <div class="make-footer">
+                        <footer class="page-footer font-small blue pt-4">
+                                <div class="row chat m-2 ">
+                                        <div class="col  class-select-item">
+                                                <input id = "chat-input" class='send-message form-control'>
+                                            </div>
+                                            <div class="col-3 class-select-item">
+                                                    <button class="btn btn-success" onclick="app.chatHelper.sendMessage()">submit</button>
+                                                </div>
+                                </div>
+                            
+                        </footer>
+                    </div>
 
             </div>
         </div>
-
+        
 
         <div id="threads-page" class="off-screen">
                 <nav class="navbar">
@@ -78,6 +85,7 @@
                         <img src="./img/img-avatar.png" class ='navbar-image'alt="Avatar">
                 </nav>
             <div id="thread-container">
+
                 </div>
 
         </div>
@@ -156,13 +164,6 @@
             <div id="unread-threads-container">
             </div>
         </div>
-
-        <div id="splash-page">
-            <div>
-                <img src="./img/Splash.png" alt="splash">
-            </div>
-    </div>
-
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
