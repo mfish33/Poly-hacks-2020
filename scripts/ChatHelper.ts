@@ -32,7 +32,8 @@ export default class ChatHelper{
         if(chat){
             console.log(chat)
             this.app.messageService.subscribeToChat(chat,this.pushToFrontEnd.bind(this))
-            this.app.transitionService.goTo('chat-page')
+            document.getElementById('chat-container')!.innerHTML = '';
+            
         }else{
             throw new Error("No Chat Of That Id")
         }
@@ -101,6 +102,9 @@ export default class ChatHelper{
             }
         }
         document.getElementById('chat-container')!.innerHTML += out.join('')
+        if(this.app.transitionService.current != 'chat-page') {
+            this.app.transitionService.goTo('chat-page');
+        }
     }
 
     sendMessage() {
@@ -111,6 +115,11 @@ export default class ChatHelper{
             inputBox.value = ''
         }
         
+    }
+
+    exitChat() {
+        this.app.messageService.unsubscribeChat()
+        this.app.transitionService.goBack()
     }
 
         

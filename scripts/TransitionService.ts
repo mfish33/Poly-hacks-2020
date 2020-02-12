@@ -1,7 +1,7 @@
 export default class TransitionService{
 
     private onLeft:string[] = []
-    private current:string = 'welcome-page' //Whatever starting div is
+    public current:string = 'welcome-page' //Whatever starting div is
 
 
     private pageTransition(off:string, on:string) {
